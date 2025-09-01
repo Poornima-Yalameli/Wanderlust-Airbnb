@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .navbar-brand {
+  color: #fe424d;
+  font-weight: bolder;
+  line-height: 1;
+  font-size: 2rem;
+  font-family: "Paytone One", sans-serif;
+}
+
+.nav-link {
+  color: #000000;
+  font-weight: 500;
+}
+.btn {
+  width: 6rem;
+}

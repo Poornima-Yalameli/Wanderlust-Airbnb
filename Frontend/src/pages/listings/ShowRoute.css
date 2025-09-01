@@ -1,0 +1,24 @@
+.card-img-top {
+  width: 100% !important;
+  object-fit: cover !important;
+}
+.show-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+.card-body {
+  padding: 0 !important;
+}
+.card-text {
+  font-weight: 500;
+}
+.show-img {
+  height: 40vh;
+}
+.heading {
+  font-weight: bolder;
+}
