@@ -73,10 +73,10 @@ const sessionOptions = {
   },
 };
 
-//test route
-app.get("/", (req, res) => {
-  res.send("Hi..,I am your Test root");
-});
+// //test route
+// app.get("/", (req, res) => {
+//   res.send("Hi..,I am your Test root");
+// });
 
 app.use(session(sessionOptions));
 
@@ -102,7 +102,7 @@ app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
 // For any other route (that isn't a static file or backend API), serve index.html
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/build", "index.html"));
+  res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"));
 });
 
 //error handling
