@@ -97,13 +97,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static frontend files
-app.use(express.static(path.join(__dirname, "../Frontend/dist")));
-
 //routes
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
+
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
 // For any other route (that isn't a static file or backend API), serve index.html
 app.use((req, res) => {
