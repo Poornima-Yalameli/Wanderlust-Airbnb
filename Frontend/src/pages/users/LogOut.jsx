@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const apiUrl = import.meta.env.VITE_API_URL;
 
 function LogOut({ setIsLoggedIn, setSuccessMsg, setErrorMsg, setCurrentUser }) {
   const navigate = useNavigate();
@@ -8,7 +7,7 @@ function LogOut({ setIsLoggedIn, setSuccessMsg, setErrorMsg, setCurrentUser }) {
   useEffect(() => {
     const logout = async () => {
       try {
-        const res = await fetch(`${apiUrl}/logout`, {
+        const res = await fetch("/logout", {
           method: "GET",
           credentials: "include",
         });

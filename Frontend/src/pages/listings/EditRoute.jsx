@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { formValidation } from "../../js/Script";
-const apiUrl = import.meta.env.VITE_API_URL;
 
 function EditRoute({ currentUser, setEditUpdateMsg }) {
   const { id } = useParams();
@@ -24,7 +23,7 @@ function EditRoute({ currentUser, setEditUpdateMsg }) {
 
   useEffect(() => {
     const fetchListing = async () => {
-      const res = await fetch(`${apiUrl}/listings/${id}/edit`, {
+      const res = await fetch(`/listings/${id}/edit`, {
         credentials: "include",
       });
 
@@ -59,7 +58,7 @@ function EditRoute({ currentUser, setEditUpdateMsg }) {
       formData.append("image", newImage);
     }
 
-    const res = await fetch(`${apiUrl}/listings/${id}`, {
+    const res = await fetch(`/listings/${id}`, {
       method: "PUT",
 
       credentials: "include",

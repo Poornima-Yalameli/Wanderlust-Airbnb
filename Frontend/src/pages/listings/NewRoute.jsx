@@ -32,7 +32,7 @@ function NewRoute({ setSuccessMsg }) {
     formData.append("listing[location]", location);
     formData.append("image", image);
 
-    const res = await fetch(`${apiUrl}/listings`, {
+    const res = await fetch(`/listings`, {
       method: "POST",
 
       credentials: "include",

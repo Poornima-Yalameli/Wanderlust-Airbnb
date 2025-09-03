@@ -2,7 +2,6 @@ import Rating from "@mui/material/Rating";
 import { useEffect, useState, useRef } from "react";
 import { formValidation } from "../../js/Script";
 import { useParams } from "react-router-dom";
-const apiUrl = import.meta.env.VITE_API_URL;
 
 function Review({ currentUser, onReviewAdded }) {
   const { id } = useParams();
@@ -37,7 +36,7 @@ function Review({ currentUser, onReviewAdded }) {
       reviewData.review.rating = rating;
     }
     try {
-      const res = await fetch(`${apiUrl}/listings/${id}/reviews`, {
+      const res = await fetch(`/listings/${id}/reviews`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

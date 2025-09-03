@@ -27,7 +27,7 @@ function ShowRoute({
 
   const fetchListing = async () => {
     try {
-      const res = await fetch(`${apiUrl}/listings/${id}`, {
+      const res = await fetch(`/listings/${id}`, {
         credentials: "include",
       });
       const data = await res.json();

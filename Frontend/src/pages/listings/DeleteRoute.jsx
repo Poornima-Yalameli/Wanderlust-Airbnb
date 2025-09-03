@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-const apiUrl = import.meta.env.VITE_API_URL;
 
 function DeleteRoute({ setSuccessMsg }) {
   const { id } = useParams();
@@ -8,7 +7,7 @@ function DeleteRoute({ setSuccessMsg }) {
 
   useEffect(() => {
     const deleteListing = async () => {
-      await fetch(`${apiUrl}/listings/${id}`, {
+      await fetch(`/listings/${id}`, {
         method: "DELETE",
         credentials: "include",
       });

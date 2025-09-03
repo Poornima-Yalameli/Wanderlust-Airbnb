@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-const apiUrl = import.meta.env.VITE_API_URL;
 
 function DeleteReview({ setErrorMsg, setDelReviewMsg }) {
   const { listingId, reviewId } = useParams();
@@ -9,13 +8,10 @@ function DeleteReview({ setErrorMsg, setDelReviewMsg }) {
   useEffect(() => {
     const deleteReview = async () => {
       try {
-        const res = await fetch(
-          `${apiUrl}/listings/${listingId}/reviews/${reviewId}`,
-          {
-            method: "DELETE",
-            credentials: "include",
-          }
-        );
+        const res = await fetch(`/listings/${listingId}/reviews/${reviewId}`, {
+          method: "DELETE",
+          credentials: "include",
+        });
 
         const data = await res.json();
         if (!res.ok) {
