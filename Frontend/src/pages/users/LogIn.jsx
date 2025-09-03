@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { formValidation } from "../../js/Script";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function LogIn({
   setSuccessMsg,
@@ -32,7 +33,7 @@ function LogIn({
 
     form.classList.remove("was-validated");
 
-    const response = await fetch("http://localhost:5000/login", {
+    const response = await fetch(`${apiUrl}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

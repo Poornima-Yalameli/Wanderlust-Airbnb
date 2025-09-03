@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NewRoute.css";
 import { formValidation } from "../../js/Script";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function NewRoute({ setSuccessMsg }) {
   const [title, setTitle] = useState("");
@@ -31,7 +32,7 @@ function NewRoute({ setSuccessMsg }) {
     formData.append("listing[location]", location);
     formData.append("image", image);
 
-    const res = await fetch("http://localhost:5000/listings", {
+    const res = await fetch(`${apiUrl}/listings`, {
       method: "POST",
 
       credentials: "include",

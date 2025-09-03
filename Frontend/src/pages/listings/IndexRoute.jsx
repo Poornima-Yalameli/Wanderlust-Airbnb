@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./IndexRoute.css";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function IndexRoute({ successMsg, setSuccessMsg, errorMsg, setErrorMsg }) {
   const [allListings, setAllListings] = useState([]);
 
   useEffect(() => {
     const fetchAllListings = async () => {
-      const res = await fetch("http://localhost:5000/listings");
+      const res = await fetch(`${apiUrl}/listings`);
       const data = await res.json();
       setAllListings(data);
     };

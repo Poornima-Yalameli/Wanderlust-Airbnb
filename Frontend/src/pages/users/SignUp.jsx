@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { formValidation } from "../../js/Script";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function SignUp({ setSuccessMsg, setErrorMsg }) {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function SignUp({ setSuccessMsg, setErrorMsg }) {
 
     form.classList.remove("was-validated");
 
-    const response = await fetch("http://localhost:5000/signup", {
+    const response = await fetch(`${apiUrl}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

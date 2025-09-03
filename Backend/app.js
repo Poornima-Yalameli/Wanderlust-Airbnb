@@ -17,7 +17,7 @@ const MongoStore = require("connect-mongo");
 
 const path = require("path");
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");

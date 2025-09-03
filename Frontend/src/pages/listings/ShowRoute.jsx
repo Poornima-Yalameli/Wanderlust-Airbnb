@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./ShowRoute.css";
 import Review from "./Review";
 import ShowReview from "./ShowReview";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function ShowRoute({
   isLoggedIn,
@@ -26,7 +27,7 @@ function ShowRoute({
 
   const fetchListing = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/listings/${id}`, {
+      const res = await fetch(`${apiUrl}/listings/${id}`, {
         credentials: "include",
       });
       const data = await res.json();
