@@ -97,17 +97,19 @@ app.use((req, res, next) => {
   next();
 });
 
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, "../Frontend/dist")));
+
 //routes
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-// Serve React static files first
-app.use(express.static(path.join(__dirname, "../Frontend/dist")));
-
 // For any other route (that isn't a static file or backend API), serve index.html
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"));
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"), (err) => {
+    if (err) next(err);
+  });
 });
 
 //error handling
