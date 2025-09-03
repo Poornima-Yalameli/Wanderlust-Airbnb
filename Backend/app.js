@@ -106,10 +106,8 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
 // For any other route (that isn't a static file or backend API), serve index.html
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"), (err) => {
-    if (err) next(err);
-  });
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"));
 });
 
 //error handling
